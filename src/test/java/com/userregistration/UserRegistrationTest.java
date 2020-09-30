@@ -23,6 +23,7 @@ class UserRegistrationTest {
 		assertEquals(false,result);
 	}*/
 
+	/*
 	@Test
 	public void givenLastName_WhenValid_ShouldReturnTrue()
 	{
@@ -35,5 +36,21 @@ class UserRegistrationTest {
 		assertEquals(false,result);
 		result=urobj.validateLastName("Ab1c3");
 		assertEquals(false,result);
+	}*/
+	
+	@Test
+	public void givenEmail_WhenValid_ShouldReturnTrue()
+	{
+		UserRegistration urobj = new UserRegistration();
+		result=urobj.validateEmail("abc.xyz@bl.co.in");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc.100@abc.com.au");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc@%*.com");
+		assertEquals(false,result);
 	}
+	
+	
 }
