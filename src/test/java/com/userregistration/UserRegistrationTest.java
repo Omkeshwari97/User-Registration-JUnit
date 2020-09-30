@@ -72,14 +72,20 @@ class UserRegistrationTest {
 	public void givenPassword_WhenValid_ShouldReturnTrue()
 	{
 		UserRegistration urobj = new UserRegistration();
+	
 		result=urobj.validatePassword("abcd1234");
-		assertEquals(true,result);
+		assertEquals(false,result);
 		result=urobj.validatePassword("abcd@123");
-		assertEquals(true,result);
+		assertEquals(false,result);
 		result=urobj.validatePassword("123456790");
-		assertEquals(true,result);
+		assertEquals(false,result);
 		result=urobj.validatePassword("abc@97");
 		assertEquals(false,result);
+		result=urobj.validatePassword("aBcd1234");
+		assertEquals(true,result);
+		result=urobj.validatePassword("abcd@123Te");
+		assertEquals(true,result);
+		
 	}
 	
 	
