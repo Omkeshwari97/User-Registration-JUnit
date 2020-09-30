@@ -1,9 +1,17 @@
 package com.userregistration;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UserRegistration 
 {
-    public static void main( String[] args )
+    private static final String FIRST_NAME_PATTERN="^[A-Z]{1}[a-zA-z]{2,}";
+    
+    public boolean validateFirstName(String fname)
     {
-        System.out.println( "User Registration Test Cases" );
+    	Pattern pattern=Pattern.compile(FIRST_NAME_PATTERN);
+    	Matcher matcher=pattern.matcher(fname);
+    	
+    	return matcher.find();
     }
 }
