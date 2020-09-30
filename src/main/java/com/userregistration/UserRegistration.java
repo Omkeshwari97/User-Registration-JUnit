@@ -9,6 +9,7 @@ public class UserRegistration
     private static final String LAST_NAME_PATTERN="^[A-Z]{1}[a-zA-Z]{2,}";
     private static final String EMAIL_PATTERN="^[a-z0-9_-]+[.|+]?[a-z0-9_-]+[@][a-z0-9]{1,}[.][a-z]{2,}[.]{0,1}[a-z]*";
     private static final String MOBILE_NUMBER_PATTERN="^[0-9]{2}[ ][0-9]{10}";
+    private static final String PASSWORD_PATTERN="[a-zA-Z0-9@$!%*?&]{8,}";
     
     public boolean validateFirstName(String fname)
     {
@@ -38,6 +39,14 @@ public class UserRegistration
     {
     	Pattern pattern=Pattern.compile(MOBILE_NUMBER_PATTERN);
     	Matcher matcher=pattern.matcher(mobileNumber);
+    	
+    	return matcher.find();
+    }
+    
+    public boolean validatePassword(String password)
+    {
+    	Pattern pattern=Pattern.compile(PASSWORD_PATTERN);
+    	Matcher matcher=pattern.matcher(password);
     	
     	return matcher.find();
     }
