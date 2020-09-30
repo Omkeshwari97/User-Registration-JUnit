@@ -85,7 +85,10 @@ class UserRegistrationTest {
 		assertEquals(true,result);
 		result=urobj.validatePassword("abcd@123Te");
 		assertEquals(true,result);
-		
+		result=urobj.validatePassword("abcdEFGHo");
+		assertEquals(false,result);
+		result=urobj.validatePassword("adc@WERtp_");
+		assertEquals(false,result);
 	}
 	
 	
