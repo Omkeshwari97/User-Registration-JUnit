@@ -29,11 +29,11 @@ class UserRegistrationTest {
 		UserRegistration urobj = new UserRegistration();
 		result=urobj.validateLastName("ABCD");
 		assertEquals(true,result);
-		result=urobj.validateFirstName("123");
+		result=urobj.validateLastName("123");
 		assertEquals(false,result);
-		result=urobj.validateFirstName("A1d");
+		result=urobj.validateLastName("A1d");
 		assertEquals(false,result);
-		result=urobj.validateFirstName("Ab1c3");
+		result=urobj.validateLastName("Ab1c3");
 		assertEquals(false,result);
 	}
 }
