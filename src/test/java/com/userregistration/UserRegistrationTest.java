@@ -38,6 +38,7 @@ class UserRegistrationTest {
 		assertEquals(false,result);
 	}*/
 	
+	/*
 	@Test
 	public void givenEmail_WhenValid_ShouldReturnTrue()
 	{
@@ -49,6 +50,20 @@ class UserRegistrationTest {
 		result=urobj.validateEmail("abc.100@abc.com.au");
 		assertEquals(true,result);
 		result=urobj.validateEmail("abc@%*.com");
+		assertEquals(false,result);
+	}*/
+	
+	@Test
+	public void givenMobileNumber_WhenValid_ShouldReturnTrue()
+	{
+		UserRegistration urobj = new UserRegistration();
+		result=urobj.validateMobileNumber("91 9876543211");
+		assertEquals(true,result);
+		result=urobj.validateMobileNumber("919876543211");
+		assertEquals(false,result);
+		result=urobj.validateMobileNumber("91 98765 43211");
+		assertEquals(false,result);
+		result=urobj.validateMobileNumber("9876543210");
 		assertEquals(false,result);
 	}
 	
