@@ -8,6 +8,7 @@ class UserRegistrationTest {
 
 	boolean result;
 	
+	/*
 	@Test
 	public void givenFirstName_WhenValid_ShouldReturnTrue()
 	{
@@ -20,6 +21,19 @@ class UserRegistrationTest {
 		assertEquals(true,result);
 		result=urobj.validateFirstName("Ab1");
 		assertEquals(false,result);
-	}
+	}*/
 
+	@Test
+	public void givenLastName_WhenValid_ShouldReturnTrue()
+	{
+		UserRegistration urobj = new UserRegistration();
+		result=urobj.validateLastName("ABCD");
+		assertEquals(true,result);
+		result=urobj.validateFirstName("123");
+		assertEquals(false,result);
+		result=urobj.validateFirstName("A1d");
+		assertEquals(false,result);
+		result=urobj.validateFirstName("Ab1c3");
+		assertEquals(false,result);
+	}
 }

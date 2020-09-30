@@ -6,11 +6,20 @@ import java.util.regex.Pattern;
 public class UserRegistration 
 {
     private static final String FIRST_NAME_PATTERN="^[A-Z]{1}[a-zA-z]{2,}";
+    private static final String LAST_NAME_PATTERN="^[A-Z]{1}[a-zA-Z]{2,}";
     
     public boolean validateFirstName(String fname)
     {
     	Pattern pattern=Pattern.compile(FIRST_NAME_PATTERN);
     	Matcher matcher=pattern.matcher(fname);
+    	
+    	return matcher.find();
+    }
+    
+    public boolean validateLastName(String lname)
+    {
+    	Pattern pattern=Pattern.compile(LAST_NAME_PATTERN);
+    	Matcher matcher=pattern.matcher(lname);
     	
     	return matcher.find();
     }
