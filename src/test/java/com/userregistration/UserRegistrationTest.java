@@ -2,7 +2,12 @@ package com.userregistration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.stream.Stream;
+
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 class UserRegistrationTest {
 
@@ -151,6 +156,7 @@ class UserRegistrationTest {
 		assertEquals(false,result);
 	}*/
 	
+	/*
 	@Test
 	public void givenUserDetails_WhenValid_ShouldReturnHappy()
 	{
@@ -165,6 +171,41 @@ class UserRegistrationTest {
 		UserRegistration urobj = new UserRegistration();
 	
 		assertEquals("Sad",urobj.validateUserDetails("Omkeshwari", "Pilare", "omp1997&gmail.com", "9876543210", "ABcd123"));
+	}*/
+	
+	@ParameterizedTest
+	@MethodSource("provideStringsforEmail")
+	public void givenEmailSamples_WhenValid_ShouldReturnTrue(String email, boolean result)
+	{
+		UserRegistration urobj=new UserRegistration();
+		assertEquals(result,urobj.validateEmail(email));
+	}
+	
+	private static Stream<Arguments> provideStringsforEmail()
+	{
+		return Stream.of(
+				Arguments.of("abc@yahoo.com",true),
+				Arguments.of("abc-100@yahoo.com",true),
+				Arguments.of("abc.100@yahoo.com",true),
+				Arguments.of("abc111@abc.com",true),
+				Arguments.of("abc-100@abc.net",true),
+				Arguments.of("abc.100@abc.com.au",true),
+				Arguments.of("abc@1.com",true),
+				Arguments.of("abc@gmail.com.com",true),
+				Arguments.of("abc+100@gmail.com",true),
+				Arguments.of("abc",false),
+				Arguments.of("abc123@gmail.a",false),
+				Arguments.of("abc123@.com",false),
+				Arguments.of("abc123@.com.com",false),
+				Arguments.of(".abc@abc.com",false),
+				Arguments.of("abc()*@gmail.com",false),
+				Arguments.of("abc@%*.com",false),
+				Arguments.of("abc..2002@gmail.com",false),
+				Arguments.of("abc.@gmail.com",false),
+				Arguments.of("abc@abc@gmail.com",false),
+				Arguments.of("abc@gmail.com.1a",false),
+				Arguments.of("abc@gmail.com.aa.au",false)
+				);
 	}
 	
 }
