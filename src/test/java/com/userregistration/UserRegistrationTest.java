@@ -68,7 +68,7 @@ class UserRegistrationTest {
 		assertEquals(false,result);
 	}*/
 	
-	@Test
+	/*@Test
 	public void givenPassword_WhenValid_ShouldReturnTrue()
 	{
 		UserRegistration urobj = new UserRegistration();
@@ -93,7 +93,61 @@ class UserRegistrationTest {
 		assertEquals(false,result);
 		result=urobj.validatePassword("1234TEDXKL");
 		assertEquals(false,result);
+	}*/
+	
+	@Test
+	public void givenEmailSamples_WhenValid_ShouldReturnTrue()
+	{
+		UserRegistration urobj = new UserRegistration();
+		result=urobj.validateEmail("abc.xyz@bl.co.in");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc.xyz@bl.co.in");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc@bl.co");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc@yahoo.com");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc-100@yahoo.com");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc.100@yahoo.com");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc111@abc.com");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc-100@abc.net");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc.100@abc.com.au");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc@1.com");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc@gmail.com.com");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc+100@gmail.com");
+		assertEquals(true,result);
+		result=urobj.validateEmail("abc");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc@.com.my");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc123@gmail.a");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc123@.com");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc123@.com.com");
+		assertEquals(false,result);
+		result=urobj.validateEmail(".abc@abc.com");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc()*@gmail.com");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc@%*.com");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc..2002@gmail.com");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc.@gmail.com");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc@abc@gmail.com");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc@gmail.com.1a");
+		assertEquals(false,result);
+		result=urobj.validateEmail("abc@gmail.com.aa.au");
+		assertEquals(false,result);
 	}
-	
-	
 }
