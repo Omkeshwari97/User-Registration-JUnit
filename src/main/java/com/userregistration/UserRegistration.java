@@ -50,4 +50,19 @@ public class UserRegistration
     	
     	return matcher.find();
     }
+    
+    public String validateUserDetails(String fname, String lname, String email, String mobile, String password)
+    {  	
+    	boolean fname_result=validateFirstName(fname);
+    	boolean lname_result=validateLastName(lname);
+    	boolean email_result=validateEmail(email);
+    	boolean mobile_result=validateMobileNumber(mobile);
+    	boolean password_result=validatePassword(password);
+    	boolean final_result=fname_result && lname_result && email_result && mobile_result && password_result;
+
+    	if(final_result)
+    		return "Happy";
+    	else
+    		return "Sad";
+    }
 }

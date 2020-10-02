@@ -94,7 +94,7 @@ class UserRegistrationTest {
 		result=urobj.validatePassword("1234TEDXKL");
 		assertEquals(false,result);
 	}*/
-	
+	/*
 	@Test
 	public void givenEmailSamples_WhenValid_ShouldReturnTrue()
 	{
@@ -149,5 +149,22 @@ class UserRegistrationTest {
 		assertEquals(false,result);
 		result=urobj.validateEmail("abc@gmail.com.aa.au");
 		assertEquals(false,result);
+	}*/
+	
+	@Test
+	public void givenUserDetails_WhenValid_ShouldReturnHappy()
+	{
+		UserRegistration urobj = new UserRegistration();
+	
+		assertEquals("Happy",urobj.validateUserDetails("Omkeshwari", "Pilare", "omp1997@gmail.com", "91 9876543210", "ABcd@123"));
 	}
+	
+	@Test
+	public void givenUserDetails_WhenValid_ShouldReturnSad()
+	{
+		UserRegistration urobj = new UserRegistration();
+	
+		assertEquals("Sad",urobj.validateUserDetails("Omkeshwari", "Pilare", "omp1997&gmail.com", "9876543210", "ABcd123"));
+	}
+	
 }
